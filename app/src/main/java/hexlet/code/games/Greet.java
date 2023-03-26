@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.User;
 
 public class Greet {
     public static void greet() {

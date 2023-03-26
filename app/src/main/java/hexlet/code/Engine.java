@@ -1,10 +1,12 @@
 package hexlet.code;
 
+import hexlet.code.games.Greet;
+
 import java.util.Scanner;
 public class Engine {
     final public static int minNumber = 0;
     final public static int maxNumber = 100;
-    final static int numberOfRounds = 3;
+    final public static int numberOfRounds = 3;
     public static String gameRules = "";
     public static void gameEngine(String[] questions, String[] expectedAnswers) {
         Greet.greet();
