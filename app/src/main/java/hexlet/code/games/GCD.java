@@ -11,8 +11,8 @@ public class GCD {
     }
     public static void gcd() {
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int firstNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
-            int secondNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
+            int firstNumber = Engine.getRandomInt(Engine.MIN, Engine.MAX);
+            int secondNumber = Engine.getRandomInt(Engine.MIN, Engine.MAX);
             Engine.questions[i] = firstNumber + " " + secondNumber;
             Engine.expectedAnswers[i] = Integer.toString(gcdByEuclidesAlgorithm(firstNumber, secondNumber));
         }

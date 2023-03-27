@@ -4,6 +4,9 @@ import hexlet.code.games.Greet;
 
 import java.util.Scanner;
 public class Engine {
+    public static int getRandomInt(int min, int max) {
+        return min + (int) (Math.random() * ((max - min) + 1));
+    }
     public static final int MIN = 0;
     public static final int MAX = 100;
     public static final int ROUNDS = 3;

@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 public class Even {
     public static void even() {
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int randomNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
+            int randomNumber = Engine.getRandomInt(Engine.MIN, Engine.MAX);
             boolean evenNumber = ((randomNumber % 2) == 0);
             Engine.questions[i] = Integer.toString(randomNumber);
             if (evenNumber) {

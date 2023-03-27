@@ -3,15 +3,11 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
-    public static int getRandomInt(int min, int max) {
-        return min + (int) (Math.random() * ((max - min) + 1));
-    }
-
     public static void calc() {
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int firstNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
-            int secondNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
-            int randomOperator = getRandomInt(0, 2);
+            int firstNumber = Engine.getRandomInt(Engine.MIN, Engine.MAX);
+            int secondNumber = Engine.getRandomInt(Engine.MIN, Engine.MAX);
+            int randomOperator = Engine.getRandomInt(0, 2);
             switch (randomOperator) {
                 case 1 -> {
                     Engine.questions[i] = firstNumber + " - " + secondNumber;
