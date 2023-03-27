@@ -8,6 +8,8 @@ public class Engine {
     public static final int MAX = 100;
     public static final int ROUNDS = 3;
     public static String gameRules = "";
+    public static String[] questions = new String[Engine.ROUNDS];
+    public static String[] expectedAnswers = new String[Engine.ROUNDS];
     public static void gameEngine(String[] questions, String[] expectedAnswers) {
         Greet.greet();
         System.out.println(gameRules);

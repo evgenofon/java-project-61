@@ -8,28 +8,26 @@ public class Calc {
     }
 
     public static void calc() {
-        String[] questions = new String[Engine.ROUNDS];
-        String[] expectedAnswers = new String[Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int firstNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
             int secondNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
             int randomOperator = getRandomInt(0, 2);
             switch (randomOperator) {
                 case 1 -> {
-                    questions[i] = firstNumber + " - " + secondNumber;
-                    expectedAnswers[i] = Integer.toString(firstNumber - secondNumber);
+                    Engine.questions[i] = firstNumber + " - " + secondNumber;
+                    Engine.expectedAnswers[i] = Integer.toString(firstNumber - secondNumber);
                 }
                 case 2 -> {
-                    questions[i] = firstNumber + " * " + secondNumber;
-                    expectedAnswers[i] = Integer.toString(firstNumber * secondNumber);
+                    Engine.questions[i] = firstNumber + " * " + secondNumber;
+                    Engine.expectedAnswers[i] = Integer.toString(firstNumber * secondNumber);
                 }
                 default -> {
-                    questions[i] = firstNumber + " + " + secondNumber;
-                    expectedAnswers[i] = Integer.toString(firstNumber + secondNumber);
+                    Engine.questions[i] = firstNumber + " + " + secondNumber;
+                    Engine.expectedAnswers[i] = Integer.toString(firstNumber + secondNumber);
                 }
             }
         }
         Engine.gameRules = "What is the result of the expression?";
-        Engine.gameEngine(questions, expectedAnswers);
+        Engine.gameEngine(Engine.questions, Engine.expectedAnswers);
     }
 }

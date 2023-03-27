@@ -10,15 +10,13 @@ public class GCD {
         return gcdByEuclidesAlgorithm(n2, n1 % n2);
     }
     public static void gcd() {
-        String[] questions = new String[Engine.ROUNDS];
-        String[] expectedAnswers = new String[Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int firstNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
             int secondNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
-            questions[i] = firstNumber + " " + secondNumber;
-            expectedAnswers[i] = Integer.toString(gcdByEuclidesAlgorithm(firstNumber, secondNumber));
+            Engine.questions[i] = firstNumber + " " + secondNumber;
+            Engine.expectedAnswers[i] = Integer.toString(gcdByEuclidesAlgorithm(firstNumber, secondNumber));
         }
         Engine.gameRules = "Find the greatest common divisor of given numbers.";
-        Engine.gameEngine(questions, expectedAnswers);
+        Engine.gameEngine(Engine.questions, Engine.expectedAnswers);
     }
 }
