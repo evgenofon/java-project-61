@@ -10,11 +10,11 @@ public class GCD {
         return gcdByEuclidesAlgorithm(n2, n1 % n2);
     }
     public static void gcd() {
-        String[] questions = new String[Engine.numberOfRounds];
-        String[] expectedAnswers = new String[Engine.numberOfRounds];
-        for (int i = 0; i < Engine.numberOfRounds; i++) {
-            int firstNumber = Engine.minNumber + (int) (Math.random() * Engine.maxNumber);
-            int secondNumber = Engine.minNumber + (int) (Math.random() * Engine.maxNumber);
+        String[] questions = new String[Engine.ROUNDS];
+        String[] expectedAnswers = new String[Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int firstNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
+            int secondNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
             questions[i] = firstNumber + " " + secondNumber;
             expectedAnswers[i] = Integer.toString(gcdByEuclidesAlgorithm(firstNumber, secondNumber));
         }

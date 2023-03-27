@@ -4,21 +4,17 @@ import hexlet.code.Engine;
 
 public class Calc {
     public static int getRandomInt(int min, int max) {
-        return min + (int)(Math.random() * ((max - min) + 1));
+        return min + (int) (Math.random() * ((max - min) + 1));
     }
 
     public static void calc() {
-        String[] questions = new String[Engine.numberOfRounds];
-        String[] expectedAnswers = new String[Engine.numberOfRounds];
-        for (int i = 0; i < Engine.numberOfRounds; i++) {
-            int firstNumber = Engine.minNumber + (int) (Math.random() * Engine.maxNumber);
-            int secondNumber = Engine.minNumber + (int) (Math.random() * Engine.maxNumber);
+        String[] questions = new String[Engine.ROUNDS];
+        String[] expectedAnswers = new String[Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int firstNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
+            int secondNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
             int randomOperator = getRandomInt(0, 2);
             switch (randomOperator) {
-                case 0 -> {
-                    questions[i] = firstNumber + " + " + secondNumber;
-                    expectedAnswers[i] = Integer.toString(firstNumber + secondNumber);
-                }
                 case 1 -> {
                     questions[i] = firstNumber + " - " + secondNumber;
                     expectedAnswers[i] = Integer.toString(firstNumber - secondNumber);
@@ -26,6 +22,10 @@ public class Calc {
                 case 2 -> {
                     questions[i] = firstNumber + " * " + secondNumber;
                     expectedAnswers[i] = Integer.toString(firstNumber * secondNumber);
+                }
+                default -> {
+                    questions[i] = firstNumber + " + " + secondNumber;
+                    expectedAnswers[i] = Integer.toString(firstNumber + secondNumber);
                 }
             }
         }

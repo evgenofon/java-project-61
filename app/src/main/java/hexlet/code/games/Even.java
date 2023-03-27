@@ -4,10 +4,10 @@ import hexlet.code.Engine;
 
 public class Even {
     public static void even() {
-        String[] questions = new String[Engine.numberOfRounds];
-        String[] expectedAnswers = new String[Engine.numberOfRounds];
-        for (int i = 0; i < Engine.numberOfRounds; i++) {
-            int randomNumber = Engine.minNumber + (int) (Math.random() * Engine.maxNumber);
+        String[] questions = new String[Engine.ROUNDS];
+        String[] expectedAnswers = new String[Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int randomNumber = Engine.MIN + (int) (Math.random() * Engine.MAX);
             boolean evenNumber = ((randomNumber % 2) == 0);
             questions[i] = Integer.toString(randomNumber);
             if (evenNumber) {
