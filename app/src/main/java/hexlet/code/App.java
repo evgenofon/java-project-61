@@ -23,6 +23,7 @@ public class App {
         System.out.println("Your choice: ");
         int gameChoice = scanner.nextInt();
         switch (gameChoice) {
+            case 0 -> scanner.close();
             case 1 -> {
                 Greet.greet();
                 scanner.close();
@@ -32,7 +33,7 @@ public class App {
             case 4 -> GCD.gcd();
             case 5 -> Progression.progression();
             case 6 -> Prime.prime();
-            default -> scanner.close();
+            default -> throw new RuntimeException("Unknown input: " + gameChoice);
         }
 
     }

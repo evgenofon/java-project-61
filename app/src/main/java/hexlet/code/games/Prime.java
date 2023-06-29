@@ -1,11 +1,14 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
+    public static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static void prime() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int randomNumber = Engine.getRandomInt(Engine.MIN, Engine.MAX);
+            int randomNumber = Utils.getRandomInt(Engine.MIN, Engine.MAX);
             boolean flag = false;
             for (int j = 2; j <= randomNumber / 2; ++j) {
                 if (randomNumber % j == 0) {
@@ -13,15 +16,14 @@ public class Prime {
                     break;
                 }
             }
-            Engine.questions[i] = Integer.toString(randomNumber);
+            questionsAndAnswers[i][0] = Integer.toString(randomNumber);
 
             if (!flag) {
-                Engine.expectedAnswers[i] = "yes";
+                questionsAndAnswers[i][1] = "yes";
             }  else {
-                Engine.expectedAnswers[i] = "No";
+                questionsAndAnswers[i][1] = "No";
             }
         }
-        Engine.gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        Engine.gameEngine(Engine.questions, Engine.expectedAnswers);
+        Engine.gameEngine(DESCRIPTION, questionsAndAnswers);
     }
 }

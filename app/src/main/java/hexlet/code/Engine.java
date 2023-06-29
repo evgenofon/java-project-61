@@ -1,40 +1,34 @@
 package hexlet.code;
 
-import hexlet.code.games.Greet;
-
 import java.util.Scanner;
 public class Engine {
-    public static int getRandomInt(int min, int max) {
-        return min + (int) (Math.random() * ((max - min) + 1));
-    }
     public static final int MIN = 0;
     public static final int MAX = 100;
     public static final int ROUNDS = 3;
-    public static String gameRules = "";
-    public static String[] questions = new String[Engine.ROUNDS];
-    public static String[] expectedAnswers = new String[Engine.ROUNDS];
-    public static void gameEngine(String[] questions, String[] expectedAnswers) {
-        Greet.greet();
-        System.out.println(gameRules);
+    public static void gameEngine(String description, String[][] questionsAndAnswers) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have Your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(description);
         for (int i = 0; i < ROUNDS; i++) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Question: " + questions[i]);
+            System.out.println("Question: " + questionsAndAnswers[i][0]);
             System.out.println("Your answer: ");
             String userAnswer = scanner.next();
-            if (expectedAnswers[i].equalsIgnoreCase(userAnswer)) {
+            if (questionsAndAnswers[i][1].equalsIgnoreCase(userAnswer)) {
                 System.out.println("Correct!");
                 if (i == (ROUNDS - 1)) {
-                    System.out.println("Congratulations, " + User.getUserName() + "!");
-                    scanner.close();
+                    System.out.println("Congratulations, " + userName + "!");
                 }
             } else {
                 System.out.println("'" + userAnswer
-                        + "' is wrong answer ;(. Correct answer was '" + expectedAnswers[i] + "'.");
-                System.out.println("Let's try again " + User.getUserName() + "!");
-                scanner.close();
+                        + "' is wrong answer ;(. Correct answer was '" + questionsAndAnswers[i][1] + "'.");
+                System.out.println("Let's try again " + userName + "!");
                 i = ROUNDS;
             }
         }
+        scanner.close();
     }
 
 }
