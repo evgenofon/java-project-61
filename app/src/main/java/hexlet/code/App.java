@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Greet;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
@@ -24,10 +23,7 @@ public class App {
         int gameChoice = scanner.nextInt();
         switch (gameChoice) {
             case 0 -> scanner.close();
-            case 1 -> {
-                Greet.greet();
-                scanner.close();
-            }
+            case 1 -> Cli.cli();
             case 2 -> Even.even();
             case 3 -> Calc.calc();
             case 4 -> GCD.gcd();
@@ -35,6 +31,7 @@ public class App {
             case 6 -> Prime.prime();
             default -> throw new RuntimeException("Unknown input: " + gameChoice);
         }
+        scanner.close();
 
     }
 }
