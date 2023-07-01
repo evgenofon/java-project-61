@@ -5,10 +5,4 @@ public class Utils {
         return min + (int) (Math.random() * ((max - min) + 1));
     }
 
-    public static int gcdByEuclidesAlgorithm(int n1, int n2) {
-        if (n2 == 0) {
-            return n1;
-        }
-        return gcdByEuclidesAlgorithm(n2, n1 % n2);
-    }
 }
